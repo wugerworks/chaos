@@ -1,0 +1,15 @@
+[book]
+language = "en"
+multilingual = false
+src = "docs"
+title = "hive-servers"
+
+[build]
+build-dir = "build/docs"
+
+[output]
+[output.html]
+
+[output.linkcheck]
+
+[preprocessor]
