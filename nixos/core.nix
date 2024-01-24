@@ -1,15 +1,9 @@
-{ super, inputs, ... }:
-{ pkgs, lib, ... }:
+{ super, inputs, pkgs ... }:
 let GB = 1024 * 1024 * 1024;
 in {
-  imports = [
-    super.users.wuger
-    super.users.root
-  ];
-
   ### System  
   system.stateVersion = "23.11";
-  time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "America/Chicago";
 
   nix = {
     settings = {
@@ -26,7 +20,7 @@ in {
       warn-dirty = false;
 
     # Some free space
-      min-free = lib.mkDefault (5 * GB);
+      min-free = (5 * GB);
       extra-trusted-substituters = [
         "https://cache.garnix.io"
         "https://cachix.org/api/v1/cache/emacs"
@@ -130,23 +124,6 @@ in {
     pathsToLink = [ "/share/zsh" ];
   };
 
-  
-  # motd
-  # programs.rust-motd = {
-  #   enable = true;
-  #   enableMotdInSSHD = true;
-  #   settings = {
-  #     global = {
-  #       progress_full_character = "=";
-  #       progress_empty_character = "-";
-  #       progress_prefix = "[";
-  #       progress_suffix = "]";
-  #     };
-  #     uptime.prefix = "up";
-  #     filesystems.root = "/";
-  #   };
-  # };
-
   # shell settings
   programs.zsh = {
     enable = true;
@@ -206,6 +183,4 @@ in {
 
   programs.command-not-found.enable = false;
   programs.nix-index.enable = false;
-
-  users.defaultUserShell = pkgs.zsh;
 }

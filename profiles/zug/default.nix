@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ cell, ... }: {
   imports = [
     ./_hardware.nix
     ./_network.nix

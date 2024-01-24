@@ -1,4 +1,3 @@
-{ ... }:
 { lib, pkgs, ... }:
 let inherit (lib) mkDefault mkForce;
 in {
