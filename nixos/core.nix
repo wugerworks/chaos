@@ -1,4 +1,4 @@
-{ super, inputs, pkgs ... }:
+{ super, inputs, pkgs, ... }:
 let GB = 1024 * 1024 * 1024;
 in {
   ### System  

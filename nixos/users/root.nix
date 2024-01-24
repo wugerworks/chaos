@@ -1,11 +1,9 @@
-{ root, ... }:
-{ config, pkgs, lib, ... }: {
-  # Root password
+{ root, config, pkgs, ... }: {
   age.secrets.root-password.file = root.secrets.users.wuger;
   users.users.root = {
-    description = lib.mkForce "Wuger";
+    description = "Root";
     extraGroups = [ "networkmanager" "wheel" ];
-    hashedPasswordFile = lib.mkDefault config.age.secrets.root-password.path;
-    shell = lib.mkForce pkgs.zsh;
+    hashedPasswordFile = config.age.secrets.root-password.path;
+    shell = pkgs.zsh;
   };
 }
